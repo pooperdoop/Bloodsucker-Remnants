@@ -118,7 +118,7 @@ public class Enemies extends WorldBuilding{
 		
 		if(spawnStop ==true) {
 			gp.EnemyRespawner();
-		//	System.out.println("Respawning" +" "+ gp.SpawnCap );
+			System.out.println("Respawning" +" "+ gp.SpawnCap );
 			gp.SpawnCap++;
 		}
 

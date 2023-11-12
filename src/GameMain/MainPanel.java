@@ -17,7 +17,7 @@ public class MainPanel{
 		frame.setVisible(true);
 		
 		gp.RunStart();
-		//gp.EnemySpawner();
+		gp.EnemySpawner();
 	}
 
 }
