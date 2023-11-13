@@ -21,6 +21,8 @@ public class Entity {
 		
 		public int atkX;
 		public int atkY;
+		public int atkX2;
+		public int atkY2;
 		public int atkLife = 0;
 	
 }

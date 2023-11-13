@@ -9,7 +9,7 @@ import javax.swing.*;
 
 public class GamePanel extends JPanel implements Runnable{
 
-		Movement movement = new Movement();
+		public Movement movement = new Movement();
 		BufferedImage walter;
 		
 		int mainTileSize = 16;
@@ -22,6 +22,7 @@ public class GamePanel extends JPanel implements Runnable{
 		public int SpawnCap =0;
 		public int screenWidth = rows*tileSize;
 		public int screenHeight = columns*tileSize;
+		public int atkCD = 0;
 		
 		public int playerX = screenWidth/2 - (tileSize/2);
 		public int playerY = screenHeight/2 - (tileSize/2);
@@ -31,7 +32,7 @@ public class GamePanel extends JPanel implements Runnable{
 		public Build bl = new Build(this);
 		public Player pl = new Player(this, movement);	
 		public PlayerAtk plAtk = new PlayerAtk(this, movement);	
-		public Enemies en[] = new Enemies[10000];	
+		public Enemies en[] = new Enemies[10000];		
 		public int worldBorderX = bl.worldmaxX* tileSize;
 		public int worldBorderY = bl.worldmaxY* tileSize;
 		public int maxX = worldBorderX-screenWidth;
@@ -119,12 +120,14 @@ public class GamePanel extends JPanel implements Runnable{
 				en[i].draw(g2, this);
 			}
 		}
+		atkCD++;
+		if(atkCD >40) {
 		if(movement.atkLeft == true || movement.atkRight == true) {
-			System.out.println("attacking");
-		plAtk.draw(g2);
+			System.out.println("attacking");	
+			plAtk.draw(g2);
 		}
 		
-		
+		}
 	}
 
 

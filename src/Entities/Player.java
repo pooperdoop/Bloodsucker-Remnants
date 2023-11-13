@@ -53,6 +53,7 @@ public class Player extends Entity {
 	}
 	
 	public void update() {
+		
 			
 			if(moving.up == true) {
 

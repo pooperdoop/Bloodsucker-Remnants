@@ -18,6 +18,13 @@ public class PlayerAtk extends Entity {
 		this.gp = gp;
 		this.mv = mv;
 		getSprite();
+		getValues();
+
+	}
+	
+	void getValues() {
+		atkX2 = gp.pl.worldX; 
+		atkY2 = gp.pl.worldY; 
 	}
 	
 	public void getSprite(){
@@ -33,26 +40,32 @@ public class PlayerAtk extends Entity {
 		
 	}
 	
-	public void draw(Graphics2D g) {
+	public void draw(Graphics2D gAtk) {
+		
+		atkX2 = gp.pl.worldX; 
+		atkY2 = gp.pl.worldY; 
 		
 		BufferedImage attack = null;
 		if(mv.atkLeft ==true) {
-			atkX = gp.playerX - gp.tileSize + (int)(gp.tileSize/2.9);
-			atkY = gp.playerY;
+			atkX = atkX2 - gp.pl.worldX+gp.playerX- (int)(gp.tileSize/2.5);
+			atkY = atkY2 -gp.pl.worldY+gp.playerY;
 			attack = atkLeft;
 		}
 		else if(mv.atkRight ==true) {
-			atkX = gp.playerX +gp.tileSize -(int)(gp.tileSize/2.9);
+			atkX = atkX2 - gp.pl.worldX+gp.playerX+ (int)(gp.tileSize/2.5);
 			atkY = gp.playerY;
 			attack = atkRight;
 		}
-		g.drawImage(attack,atkX , atkY, gp.tileSize, gp.tileSize, null);
+		gAtk.drawImage(attack,atkX , atkY, gp.tileSize, gp.tileSize, null);
 		
 		atkLife++;
 		if(atkLife > 10) {
 			mv.atkLeft = false;
 			mv.atkRight = false;
 			atkLife =0;
+			gp.atkCD =0;
+			atkX = 1000000000;
+			atkY = 1000000000;
 		}
 		
 	}

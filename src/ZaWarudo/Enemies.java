@@ -111,13 +111,14 @@ public class Enemies extends WorldBuilding{
 		g.drawImage(monsterWalk,enemyX,enemyY, gp.tileSize,gp.tileSize ,null);
 		}
 		
-		if(enemyX2 == gp.pl.worldX &&  enemyY2 == gp.pl.worldY ) {
+		if(gp.movement.atkLeft == true && enemyX >= gp.plAtk.atkX-(int)(gp.tileSize/2) && enemyX <= gp.plAtk.atkX&&  enemyY >= gp.plAtk.atkY-gp.tileSize && enemyY <= gp.plAtk.atkY+gp.tileSize || 
+				gp.movement.atkRight == true && enemyX >= gp.plAtk.atkX && enemyX <= gp.plAtk.atkX+(int)(gp.tileSize/2)&&  enemyY >= gp.plAtk.atkY-gp.tileSize && enemyY <= gp.plAtk.atkY+gp.tileSize) {
 			enemyHealth =-1;
 			spawnStop = true;
 		}
 		
 		if(spawnStop ==true) {
-			gp.EnemyRespawner();
+			gp.EnemyRespawner();		
 			System.out.println("Respawning" +" "+ gp.SpawnCap );
 			gp.SpawnCap++;
 		}
