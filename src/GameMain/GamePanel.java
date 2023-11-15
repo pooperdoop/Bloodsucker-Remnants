@@ -23,6 +23,7 @@ public class GamePanel extends JPanel implements Runnable{
 		public int screenWidth = rows*tileSize;
 		public int screenHeight = columns*tileSize;
 		public int atkCD = 0;
+		public int enemyCD = 30;
 		
 		public int playerX = screenWidth/2 - (tileSize/2);
 		public int playerY = screenHeight/2 - (tileSize/2);
@@ -55,21 +56,20 @@ public class GamePanel extends JPanel implements Runnable{
 		
 	}
 	
-	 void EnemySpawner() {
-		while(SpawnCap < 100) {
-			en[SpawnCap] = new Enemies();	
-				en[SpawnCap].Enemies(this);
-				SpawnCap++;
-				//System.out.println("baller" +" "+SpawnCap );
-
-		}
-	}
 	 
 	public void EnemyRespawner() {
-		 
+	 
+		if(SpawnCap < en.length) {
+		if(enemyCD == 30) {
+		
 			en[SpawnCap] = new Enemies();	
 			en[SpawnCap].Enemies(this);
-//		 
+			//System.out.println("Spawning enemy "+""+SpawnCap);
+			enemyCD =0;
+			SpawnCap++;
+		}
+		enemyCD++;
+		 }
 	 }
 	
 	@Override
@@ -87,6 +87,7 @@ public class GamePanel extends JPanel implements Runnable{
 	            timer += (currentTime - lastTime);
 	            lastTime = currentTime;
 	            if (delta >= 1) {
+	            	EnemyRespawner();
 	                update();
 	                repaint();
 	                delta--;
@@ -123,7 +124,7 @@ public class GamePanel extends JPanel implements Runnable{
 		atkCD++;
 		if(atkCD >40) {
 		if(movement.atkLeft == true || movement.atkRight == true) {
-			System.out.println("attacking");	
+			
 			plAtk.draw(g2);
 		}
 		

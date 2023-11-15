@@ -24,5 +24,15 @@ public class Entity {
 		public int atkX2;
 		public int atkY2;
 		public int atkLife = 0;
+		
+		public int hitboxleftTop;
+		public int hitboxrightTop;
+		public int hitboxleftBottom;
+		public int hitboxrightBottom;
+		
+		public int hitboxLeft;
+		public int hitboxRight;
+		public int hitboxTop;
+		public int hitboxBottom ;
 	
 }

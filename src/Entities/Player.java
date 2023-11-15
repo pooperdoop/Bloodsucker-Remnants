@@ -162,15 +162,15 @@ public class Player extends Entity {
 	
 	public void collisionCheck(){
 		
-		int hitboxleftTop = worldX+hitbox.x;
-		int hitboxrightTop = worldX+hitbox.x+hitbox.width;
-		int hitboxleftBottom = worldY +hitbox.y;
-		int hitboxrightBottom = worldY +hitbox.y + hitbox.height;
+		 hitboxleftTop = worldX+hitbox.x;
+		 hitboxrightTop = worldX+hitbox.x+hitbox.width;
+		 hitboxleftBottom = worldY +hitbox.y;
+		 hitboxrightBottom = worldY +hitbox.y + hitbox.height;
 		
-		int hitboxLeft = hitboxleftTop/gp.tileSize;
-		int hitboxRight = hitboxrightTop/gp.tileSize;
-		int hitboxTop = hitboxleftBottom/gp.tileSize;
-		int hitboxBottom = hitboxrightBottom/gp.tileSize;
+		 hitboxLeft = hitboxleftTop/gp.tileSize;
+		 hitboxRight = hitboxrightTop/gp.tileSize;
+		 hitboxTop = hitboxleftBottom/gp.tileSize;
+		 hitboxBottom = hitboxrightBottom/gp.tileSize;
 
 		
 		

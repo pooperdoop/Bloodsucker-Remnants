@@ -6,7 +6,7 @@ import GameMain.GamePanel;
 
 public class WorldBuilding {
 	
-	public BufferedImage tileGrass, tileRock, tileTree, tileSpawn, tileStars, grassMonster1, grassMonster2, grassMonster3, grassMonster4;
+	public BufferedImage tileGrass, tileRock, tileTree, tileSpawn, tileStars, grassMonster1, grassMonster2, grassMonster3, grassMonster4, snowEnemy;
 	public int worldmaxX = 57;
 	public int worldmaxY = 57;
 	
@@ -19,6 +19,7 @@ public class WorldBuilding {
 	public int enemySpeed;
 	public int enemyHealth;
 	public int rnSpd;
+	public int enemySkin;
 	public boolean spawnStop = false;
 	
 	public Random rnd = new Random();
@@ -31,7 +32,9 @@ public class WorldBuilding {
 	public int screenX;
 	public int screenY;
 	
-	public int tileValue = 0;;
+	public int tileValue = 0;
+	public int Iframes;
+	public boolean damaged = false;
 	
 	public int enemyWalkAnimation;
 	public int animationCount = 1;
