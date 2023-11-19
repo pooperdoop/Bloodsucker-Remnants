@@ -95,12 +95,12 @@ public class Build extends WorldBuilding{
 				if(screenX >= 0 -gp.tileSize&& screenX <= gp.screenWidth&& screenY >=0-gp.tileSize && screenY <=gp.screenHeight) {
 					gp.pl.collisionCheck();
 				g.drawImage(randomTile, screenX, screenY, gp.tileSize, gp.tileSize,null);
+				plScore = plScore;
+				System.out.println(plScore);
 				
 				}							
 			}
 		}		
 	}
-	
-	
 	
 }

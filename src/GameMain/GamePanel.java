@@ -8,7 +8,9 @@ import java.awt.image.BufferedImage;
 import javax.swing.*;
 
 public class GamePanel extends JPanel implements Runnable{
-
+		
+		public JLabel life = new JLabel();
+		public JLabel Score = new JLabel();
 		public Movement movement = new Movement();
 		BufferedImage walter;
 		
@@ -48,6 +50,11 @@ public class GamePanel extends JPanel implements Runnable{
 		this.setDoubleBuffered(true);
 		this.addKeyListener(movement);
 		this.setFocusable(true);
+		this.add(life);
+		this.add(Score);
+		life.setFont(new Font("Comic Sans",Font.BOLD,tileSize));
+		Score.setFont(new Font("Comic Sans",Font.BOLD,tileSize));
+		life.setForeground(Color.red);
 		
 	}
 	void RunStart() {
@@ -63,7 +70,7 @@ public class GamePanel extends JPanel implements Runnable{
 		if(enemyCD == 30) {
 		
 			en[SpawnCap] = new Enemies();	
-			en[SpawnCap].Enemies(this);
+			en[SpawnCap].Enemies(this, bl);
 			//System.out.println("Spawning enemy "+""+SpawnCap);
 			enemyCD =0;
 			SpawnCap++;
@@ -101,6 +108,10 @@ public class GamePanel extends JPanel implements Runnable{
 	    }
 	
 	public void update() {
+		Score.setBounds(1580, 10,tileSize*5,tileSize);
+		life.setBounds(10,10,200,tileSize);
+		life.setText(pl.playerHP.toString());
+		Score.setText(bl.plScore.toString());
 		pl.update();
 		for(int i = 0; i <en.length;i++) {
 			if(en[i] != null) {

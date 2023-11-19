@@ -17,6 +17,7 @@ public class MainPanel{
 		frame.setVisible(true);
 		
 		gp.RunStart();
+		
 	}
 
 }

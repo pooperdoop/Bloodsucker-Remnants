@@ -8,12 +8,13 @@ public class Entity {
 		public BufferedImage walkleft1, walkleft2, walkright1, walkright2, walkup1, walkup2, walkdown1, walkdown2, atkLeft, atkRight;
 		public int worldX;
 		public int worldY;
-		public int playerHP = 10;
+		public Integer playerHP = 10;
 		public int spawnCap=20;
 		public int spawned = spawnCap;
 		public boolean cornerX = false;
 		public boolean cornerY = false;
 		public boolean colliding = false;
+		
 		int speed;
 		int counter = 1, num =1;
 		int direction = 2;

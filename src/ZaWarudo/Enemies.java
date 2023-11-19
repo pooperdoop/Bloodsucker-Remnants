@@ -3,7 +3,7 @@ package ZaWarudo;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.*;
-
+import javax.swing.*;
 import javax.imageio.ImageIO;
 
 import Entities.Entity;
@@ -12,9 +12,11 @@ import GameMain.GamePanel;
 public class Enemies extends WorldBuilding{
 
 	GamePanel gp;
+	WorldBuilding bl;
 	
-	public void Enemies(GamePanel gp) {
+	public void Enemies(GamePanel gp, WorldBuilding bl) {
 		this.gp = gp;
+		this.bl = bl;
 		
 		
 		getSprite();
@@ -123,6 +125,11 @@ public class Enemies extends WorldBuilding{
 					Iframes = 0;
 				}
 			}
+		
+		if(enemyHealth < 1) {
+			bl.ScoreUp();
+			enemyHealth = 1;
+		}
 		}
 	}
 	
@@ -162,9 +169,10 @@ public class Enemies extends WorldBuilding{
 	}
 	
 	public void damageCheck() {
-		
+		gp.Score.setBounds(1580, 10,gp.tileSize*5,gp.tileSize);
+		gp.life.setBounds(10,10,200,gp.tileSize);
 		if(enemyX2 >= gp.pl.worldX-gp.pl.hitbox.width &&enemyX2 <= gp.pl.worldX+gp.pl.hitbox.width && enemyY2 >= gp.pl.worldY-gp.pl.hitbox.y&& enemyY2 <= gp.pl.worldY+gp.pl.hitbox.y) {
-			System.out.println("player hit"+ gp.pl.playerHP);
+			System.out.println("player hit"+ gp.pl.playerHP);			
 			gp.pl.playerHP--;
 			damaged = true;
 			if(gp.pl.playerHP == 0) {

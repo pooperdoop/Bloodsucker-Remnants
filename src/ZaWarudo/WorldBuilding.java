@@ -9,6 +9,7 @@ public class WorldBuilding {
 	public BufferedImage tileGrass, tileRock, tileTree, tileSpawn, tileStars, grassMonster1, grassMonster2, grassMonster3, grassMonster4, snowEnemy;
 	public int worldmaxX = 57;
 	public int worldmaxY = 57;
+	public Integer plScore = 0;
 	
 	public int worldGen[][] = new int[worldmaxX][worldmaxY];
 	
@@ -39,4 +40,10 @@ public class WorldBuilding {
 	public int enemyWalkAnimation;
 	public int animationCount = 1;
 	public BufferedImage monsterWalk = grassMonster1;
+	
+
+	public void ScoreUp() {
+		plScore+=5;
+		
+	}
 }
